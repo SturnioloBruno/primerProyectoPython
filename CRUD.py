@@ -28,12 +28,16 @@ def conexionBBDD():
     except:
         messagebox.showwarning("¡Atencion!", "La BBDD ya existe")
 
+
 def salirAplicacion():
 
     confirmacion = messagebox.askquestion("Salir", "¿Deseas salir de la aplicacion")
 
     if confirmacion == "yes":
         root.destroy()
+
+
+
 
 root = Tk()
 
@@ -66,21 +70,27 @@ barraMenu.add_cascade(label="Ayuda", menu=ayudaMenu)
 miFrame = Frame(root)
 miFrame.pack()
 
-cuadroID = Entry(miFrame)
+miId = StringVar()
+miNombre = StringVar()
+miApellido = StringVar()
+miPass = StringVar()
+miDireccion = StringVar()
+
+cuadroID = Entry(miFrame, textvariable=miId)
 cuadroID.grid(row=0, column=1, padx=10, pady=10)
 
-cuadroNombre = Entry(miFrame)
+cuadroNombre = Entry(miFrame, textvariable=miNombre)
 cuadroNombre.grid(row=1, column=1, padx=10, pady=10)
 cuadroNombre.config(fg="red", justify="right")
 
-cuadroPass = Entry(miFrame)
+cuadroPass = Entry(miFrame,textvariable=miPass)
 cuadroPass.grid(row=2, column=1, padx=10, pady=10)
 cuadroPass.config(show="?")
 
-cuadroApellido = Entry(miFrame)
+cuadroApellido = Entry(miFrame, textvariable=miApellido)
 cuadroApellido.grid(row=3, column=1, padx=10, pady=10)
 
-cuadroDireccion = Entry(miFrame)
+cuadroDireccion = Entry(miFrame, textvariable=miDireccion)
 cuadroDireccion.grid(row=4, column=1, padx=10, pady=10)
 
 cuadroTexto = Text(miFrame, width=16, height= 5)
