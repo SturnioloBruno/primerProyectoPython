@@ -46,6 +46,26 @@ def limpiarCampos():
     miPass.set("")
     cuadroTexto.delete(1.0, END)
 
+
+def crear():
+    miConexion = sqlite3.connect("Usuarios")
+    miCursor = miConexion.cursor()
+
+    miCursor.execute('''
+        INSERT INTO DATOSUSUARIOS VALUES(
+                     NULL,
+                     '{}',
+                     '{}',
+                     '{}',
+                     '{}',
+                     '{}'
+                    )
+    '''.format(miNombre.get(), miPass.get(), miApellido.get(), miDireccion.get(), cuadroTexto.get("1.0", END)))
+
+    miConexion.commit()
+
+    messagebox.showinfo("BBDD", "Registro insertado con éxito")
+
 root = Tk()
 
 barraMenu = Menu(root)
@@ -59,7 +79,7 @@ borrarMenu=Menu(barraMenu, tearoff=0)
 borrarMenu.add_command(label="Borrar Campos", command=limpiarCampos)
 
 CRUDMenu=Menu(barraMenu, tearoff=0)
-CRUDMenu.add_command(label="Crear")
+CRUDMenu.add_command(label="Crear", command=crear)
 CRUDMenu.add_command(label="Leer")
 CRUDMenu.add_command(label="Actualizar")
 CRUDMenu.add_command(label="Borrar")
@@ -132,7 +152,7 @@ comentariosLabel.grid(row=5, column=0, sticky="e", padx=10, pady=10)
 miFrame2 = Frame(root)
 miFrame2.pack()
 
-botonCrear = Button(miFrame2, text="Create")
+botonCrear = Button(miFrame2, text="Create", command=crear)
 botonCrear.grid(row=1,column=0, sticky="e", padx=10, pady=10)
 
 botonLeer = Button(miFrame2, text="Read")
