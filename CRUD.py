@@ -37,7 +37,14 @@ def salirAplicacion():
         root.destroy()
 
 
+def limpiarCampos():
 
+    miNombre.set("")
+    miId.set("")
+    miApellido.set("")
+    miDireccion.set("")
+    miPass.set("")
+    cuadroTexto.delete(1.0, END)
 
 root = Tk()
 
@@ -49,7 +56,7 @@ bbddMenu.add_command(label="Conectar", command=conexionBBDD)
 bbddMenu.add_command(label="Salir", command=salirAplicacion)
 
 borrarMenu=Menu(barraMenu, tearoff=0)
-borrarMenu.add_command(label="Borrar Campos")
+borrarMenu.add_command(label="Borrar Campos", command=limpiarCampos)
 
 CRUDMenu=Menu(barraMenu, tearoff=0)
 CRUDMenu.add_command(label="Crear")
