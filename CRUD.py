@@ -57,4 +57,24 @@ scrollVert.grid(row=5, column=2, sticky="nsew")
 
 cuadroTexto.config(yscrollcommand=scrollVert.set)
 
+# ------------------------------------comienzo de los label--------------------------------------
+
+idLabel = Label (miFrame, text="ID:")
+idLabel.grid(row=0, column=0, sticky="e", padx=10, pady=10)
+
+nombreLabel = Label (miFrame, text="Nombre:")
+nombreLabel.grid(row=1, column=0, sticky="e", padx=10, pady=10)
+
+passLabel = Label (miFrame, text="Password:")
+passLabel.grid(row=2, column=0, sticky="e", padx=10, pady=10)
+
+apellidoLabel = Label (miFrame, text="Apellido:")
+apellidoLabel.grid(row=3, column=0, sticky="e", padx=10, pady=10)
+
+direccionLabel = Label (miFrame, text="Direccion:")
+direccionLabel.grid(row=4, column=0, sticky="e", padx=10, pady=10)
+
+comentariosLabel = Label (miFrame, text="Comentarios:")
+comentariosLabel.grid(row=5, column=0, sticky="e", padx=10, pady=10)
+
 root.mainloop()
