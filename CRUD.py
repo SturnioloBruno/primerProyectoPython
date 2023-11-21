@@ -77,4 +77,21 @@ direccionLabel.grid(row=4, column=0, sticky="e", padx=10, pady=10)
 comentariosLabel = Label (miFrame, text="Comentarios:")
 comentariosLabel.grid(row=5, column=0, sticky="e", padx=10, pady=10)
 
+# --------------------------------------aqui van los botones---------------------------------------
+
+miFrame2 = Frame(root)
+miFrame2.pack()
+
+botonCrear = Button(miFrame2, text="Create")
+botonCrear.grid(row=1,column=0, sticky="e", padx=10, pady=10)
+
+botonLeer = Button(miFrame2, text="Read")
+botonLeer.grid(row=1,column=1, sticky="e", padx=10, pady=10)
+
+botonActualizar = Button(miFrame2, text="Update")
+botonActualizar.grid(row=1,column=2, sticky="e", padx=10, pady=10)
+
+botonBorrar = Button(miFrame2, text="Delete")
+botonBorrar.grid(row=1,column=3, sticky="e", padx=10, pady=10)
+
 root.mainloop()
