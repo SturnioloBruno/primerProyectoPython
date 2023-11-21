@@ -29,5 +29,32 @@ barraMenu.add_cascade(label="Borrar", menu=borrarMenu)
 barraMenu.add_cascade(label="CRUD", menu=CRUDMenu)
 barraMenu.add_cascade(label="Ayuda", menu=ayudaMenu)
 
+# ---------------------------------------Comienzo de campos----------------------------------
+miFrame = Frame(root)
+miFrame.pack()
+
+cuadroID = Entry(miFrame)
+cuadroID.grid(row=0, column=1, padx=10, pady=10)
+
+cuadroNombre = Entry(miFrame)
+cuadroNombre.grid(row=1, column=1, padx=10, pady=10)
+cuadroNombre.config(fg="red", justify="right")
+
+cuadroPass = Entry(miFrame)
+cuadroPass.grid(row=2, column=1, padx=10, pady=10)
+cuadroPass.config(show="?")
+
+cuadroApellido = Entry(miFrame)
+cuadroApellido.grid(row=3, column=1, padx=10, pady=10)
+
+cuadroDireccion = Entry(miFrame)
+cuadroDireccion.grid(row=4, column=1, padx=10, pady=10)
+
+cuadroTexto = Text(miFrame, width=16, height= 5)
+cuadroTexto.grid(row=5, column=1, padx=10, pady=10)
+scrollVert = Scrollbar(miFrame, command=cuadroTexto.yview)
+scrollVert.grid(row=5, column=2, sticky="nsew")
+
+cuadroTexto.config(yscrollcommand=scrollVert.set)
 
 root.mainloop()
