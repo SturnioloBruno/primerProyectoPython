@@ -103,6 +103,16 @@ def actualizar():
     messagebox.showinfo("BBDD", "Registro actualizado con éxito")
 
 
+def eliminar():
+    miConexion = sqlite3.connect("Usuarios")
+    miCursor = miConexion.cursor()
+
+    miCursor.execute("DELETE FROM DATOSUSUARIOS WHERE ID=" + miId.get())
+
+    miConexion.commit()
+
+    messagebox.showinfo("BBDD", "Registro borrado con exito")
+
 root = Tk()
 
 barraMenu = Menu(root)
@@ -119,7 +129,7 @@ CRUDMenu=Menu(barraMenu, tearoff=0)
 CRUDMenu.add_command(label="Crear", command=crear)
 CRUDMenu.add_command(label="Leer", command=leer)
 CRUDMenu.add_command(label="Actualizar",command=actualizar)
-CRUDMenu.add_command(label="Borrar")
+CRUDMenu.add_command(label="Borrar", command=eliminar)
 
 ayudaMenu=Menu(barraMenu, tearoff=0)
 ayudaMenu.add_command(label="Licencia")
@@ -198,7 +208,7 @@ botonLeer.grid(row=1,column=1, sticky="e", padx=10, pady=10)
 botonActualizar = Button(miFrame2, text="Update", command=actualizar)
 botonActualizar.grid(row=1,column=2, sticky="e", padx=10, pady=10)
 
-botonBorrar = Button(miFrame2, text="Delete")
+botonBorrar = Button(miFrame2, text="Delete", command=eliminar)
 botonBorrar.grid(row=1,column=3, sticky="e", padx=10, pady=10)
 
 root.mainloop()
